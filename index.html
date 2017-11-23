@@ -1,0 +1,94 @@
+<!doctype html>
+<head>
+  <meta charset=utf-8>
+  <title>write2</title>
+  <style>
+html, body, #t {
+  height: 100%;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#t {
+  box-sizing: border-box;
+  display: block;
+  margin: 0 auto;
+  padding: 1em 0;
+  width: 95%;
+  max-width: 600px;
+  resize: none;
+  border: 0;
+  font-size: 20pt;
+  color: inherit;
+  background: transparent;
+  line-height: 2em;
+  font-family: "Open Sans", "Segoe UI", Avenir, -apple-system, Roboto, system-ui, Ubuntu, Tahoma, Verdana, Helvetica, sans-serif;
+}
+
+.l {
+  color: #222;
+  background: #fafafa;
+}
+.d {
+  color: #fafafa;
+  background: #222;
+}
+
+#c {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 1em 0;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+  background: #222;
+  border-top: 2px solid #fafafa;
+  text-align: center;
+}
+#c:hover, #c.h {
+  opacity: 0.8;
+}
+
+.b {
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+  margin: 0 1em;
+  border-radius: 100%;
+  border: 2px solid #fff;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+#l {
+  background: #fafafa;
+}
+#d {
+  background: #222;
+}
+  </style>
+  <meta name=viewport content="width=device-width, initial-scale=1">
+</head>
+<body id=b class=l>
+  <textarea id=t placeholder="..." autofocus></textarea>
+  <div id=c class=h>
+    <a href=# class=b id=l></a>
+    <a href=# class=b id=d></a>
+  </div>
+  <script>
+    [l, d].forEach(function (el) {
+      el.onclick = function (e) {
+        e.preventDefault()
+        b.className = e.target.id
+      }
+    })
+
+    b.onclick = function (e) {
+      if (e.target == b) { t.focus() }
+    }
+
+    setTimeout('c.className=""', 1000)
+  </script>
